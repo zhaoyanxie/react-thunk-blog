@@ -1,3 +1,11 @@
+# Redux Cycle
+
+1. Action Creator gets called so as to change the state of the app.
+2. Action is produced by the Action Creator.
+3. Action is fed to the dispatch function.
+4. Reducers receive the action from the dispatch function.
+5. A new state is called by the Reducers.
+
 # Async Actions with Redux Thunk
 
 ## Fetching Data in a Redux App
