@@ -6,6 +6,13 @@
 4. Reducers receive the action from the dispatch function.
 5. A new state is called by the Reducers.
 
+# Rules of Reducers
+
+1. Must return any value besides "undefined".
+2. A reducer produces "state" using only previous state and the action.
+3. Must not return reach "out of itself" to decide what value to return (reducers are pure). e.g. a reducer must not perform a fetch request/fetch dom/produce side effects.
+4. Must not mutate its input "state" argument. i.e. reducers are pure. (Clarification: do not return objects or arrays in as state same as the inputs in memory or else error will result. Otherwise state mutation will not produce errors.)
+
 # Async Actions with Redux Thunk
 
 ## Fetching Data in a Redux App
