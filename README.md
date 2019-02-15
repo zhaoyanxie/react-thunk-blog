@@ -13,6 +13,17 @@
 3. Must not return reach "out of itself" to decide what value to return (reducers are pure). e.g. a reducer must not perform a fetch request/fetch dom/produce side effects.
 4. Must not mutate its input "state" argument. i.e. reducers are pure. (Clarification: do not return objects or arrays in as state same as the inputs in memory or else error will result. Otherwise state mutation will not produce errors.)
 
+## Working with Arrays and Objects
+
+| Do something                       | Bad                  | Good!                                       |
+| ---------------------------------- | -------------------- | ------------------------------------------- |
+| Removing an element from an array  | `state.pop()`        | `state.filter(element => element !== "hi")` |
+| Adding an element to an array      | `state.push("hi")`   | `[...state, "hi"]`                          |
+| Replacing an element in an array   | `state[0] = "hi"`    | `state.map(el => el === "hi" ? "bye" : el)` |
+| Updating a property in an object   | `state.name = "Sam"` | `{...state, name: "Sam"}`                   |
+| Adding a property to an object     | `state.age = 30`     | `{...state, age: 30}`                       |
+| Removing a property from an object | `delete state.name`  | `_{...state, age: undefined}`               |
+
 # Async Actions with Redux Thunk
 
 ## Fetching Data in a Redux App
